@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThemeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ThemeController::class, 'main'])->name('main');
+Route::get('/contact', [ThemeController::class, 'contact'])->name('contact');
+Route::post('/choose', [ThemeController::class, 'choose'])->name('choose');
